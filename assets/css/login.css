@@ -1,0 +1,65 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    widows: 100%;
+    background: url("/assets/images/login_bg.jpg")
+    no-repeat center;
+    background-size: cover;
+}
+
+/* 可以控制台审查元素里的图判断盒子真实宽高 */
+.loginAndRegBox {
+    width: 400px;
+    height: 310px;
+   background-color: #fff;
+   /* 相对浏览器绝对定位使盒子左上角在浏览器正中间 */
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   /* 再通过2d transform属性把盒子整体移动居中 */
+   transform: translate(-50%,-50%);
+}
+
+.title-box {
+    height: 60px;
+   background: url('/assets/images/login_title.png')
+   no-repeat center;
+}
+
+/* 默认是隐藏的 */
+.reg-box {
+    display: none;
+}
+
+/* 用padding去挤压左右使其不贴边更加美观*/
+.layui-form {
+    padding: 0 30px;
+}
+
+/* 按钮居右 ,盒子移动的方法：定位（直接写left，top不会动）/2d trnsform/flex布局/margin*/
+.links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.links a {
+    font-size: 12px;
+}
+
+/* 操作相同，父子共有类名，快速解决问题 */
+.layui-form-item {
+    position: relative;
+}
+
+.layui-icon {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+/* 图标是定位在输入框上面的，所以输入框padding挤一下输入框的内容 */
+.layui-input {
+    padding-left: 32px;
+}
+

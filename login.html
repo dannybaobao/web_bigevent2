@@ -1,12 +1,100 @@
+<!--
+ * @Author: danny dannybaobaoo@163.com
+ * @Date: 2022-10-11 02:41:19
+ * @LastEditors: danny dannybaobaoo@163.com
+ * @LastEditTime: 2022-10-14 04:10:12
+ * @FilePath: /code/login.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>大事件-登录/组册</title>
+    <!-- 导入layui的样式 -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css"/>
+    <!-- 导入自己的样式表 -->
     <link rel="stylesheet" href="/assets/css/login.css"/>
 </head>
+
 <body >
+    <!-- 头部的logo区 -->
+   <div  class="layui-main">
+    <img src="/assets/images/logo.png" alt=""/>
+   </div>
+
+   <!-- 登录/组册区域 -->
+   <div class="loginAndRegBox">
+    <div class="title-box"></div>
+    <!-- 登录的div -->
+    <div class="login-box">
+        <!-- 登录的表单，复制过来的需要补全form 闭合-->
+        <form class="layui-form" id="form_login">
+            <!-- 用户名 -->
+            <div class="layui-form-item">  
+                <i class="layui-icon layui-icon-username"></i>   
+                <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            </div>
+           <!-- 密码 -->
+           <div class="layui-form-item">  
+             <i class="layui-icon layui-icon-password"></i>   
+             <input type="password" name="password" required  lay-verify="required|pwd" placeholder="请输入密码" autocomplete="off" class="layui-input">
+           </div>
+           <!-- 登录按钮 -->
+           <div class="layui-form-item">
+               <!-- 这里涉及在layui不同地方找不同的类名 -->
+             <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit lay-filter="formDemo" >登录</button>
+           </div>
+           <!-- 跳转 -->
+          <div class="layui-form-item links">
+             <!-- href加javascript：；防止页面跳转 。这里a链接也用layui占一行的类名-->
+              <a href="javascript:;" id="link_reg">去注册</a>
+          </div>
+        </form>
+    </div>
+
+    <!-- 注册的div -->
+    <div class="reg-box">
+        <!-- 注册的表单.复制登录的过来改 -->
+        <form class="layui-form" id="form_reg">
+            <!-- 用户名 -->
+            <div class="layui-form-item">  
+                <i class="layui-icon layui-icon-username"></i>   
+                <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            </div>
+           <!-- 密码 -->
+           <div class="layui-form-item">  
+             <i class="layui-icon layui-icon-password"></i>   
+             <input type="password" name="password" required  lay-verify="required|pwd" placeholder="请输入密码" autocomplete="off" class="layui-input" >
+           </div>
+           <!-- 确认密码 -->
+          <div class="layui-form-item">  
+            <i class="layui-icon layui-icon-password"></i>   
+            <input type="password" name="repassword" required  lay-verify="required|pwd|repwd" placeholder="再次确认密码" autocomplete="off" class="layui-input">
+          </div>
+           <!-- 注册按钮 -->
+           <div class="layui-form-item">
+               <!-- 这里涉及在layui不同地方找不同的类名 -->
+             <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit lay-filter="formDemo" >注册</button>
+           </div>
+           <!-- 跳转 -->
+          <div class="layui-form-item links">
+             <!-- href加javascript：；防止页面跳转 。这里a链接也用layui占一行的类名-->
+             <a href="javascript:;" id="link_login">去登录</a>
+          </div>
+        </form>
+    </div>
+  </div>
+   
+    <!-- 2.导入layui的js文件 ，all的好用.为了配合之前的表单校验规则的实现-->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 1.导入jquery -->
+    <script src="/assets/lib/jquery.js"></script>  
+    <!-- 3.导入自己封装的，这个是为了实现请求的url拼接，在发起请求前生效而不是每次都手动拼接 -->
+    <script src="/assets/js/baseAPI.js"></script> 
+    <!--1.导入自己的javascript脚本  -->
+    <script src="/assets/js/login.js"></script>
 </body>
 </html>
